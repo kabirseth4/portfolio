@@ -1,5 +1,5 @@
+@import "./base/fonts.css";
 @import "./base/resets.css";
-@import "./base/typography.css";
 
 @tailwind base;
 @tailwind components;
