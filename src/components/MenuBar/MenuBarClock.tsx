@@ -1,4 +1,4 @@
-import { useDateTime } from "../hooks/useDateTime";
+import { useDateTime } from "../../hooks/useDateTime";
 
 export const MenuBarClock = () => {
   const { dateStr, timeStr } = useDateTime();

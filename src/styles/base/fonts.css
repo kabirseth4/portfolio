@@ -13,7 +13,7 @@
 }
 
 @font-face {
-  font-family: SF;
+  font-family: San Francisco;
   src: url("../../assets/fonts/SF-Pro-Text-Regular.otf") format("otf"),
     url("../../assets/fonts/alt-files/SF-Pro.ttf") format("ttf");
   font-weight: 600;
@@ -24,5 +24,5 @@
 }
 
 .font-sf {
-  font-family: "SF", sans-serif;
+  font-family: "San Francisco", sans-serif;
 }
