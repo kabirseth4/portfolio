@@ -1,8 +1,8 @@
-type DockItemProps = {
+export type DockItemProps = {
   icon: string;
-  iconAlt: string;
+  name: string;
 };
 
-export const DockItem = ({ icon, iconAlt }: DockItemProps) => {
-  return <img src={icon} alt={iconAlt} className="h-14 rounded-xl" />;
+export const DockItem = ({ icon, name }: DockItemProps) => {
+  return <img src={icon} alt={name} className="h-14 rounded-xl" />;
 };
