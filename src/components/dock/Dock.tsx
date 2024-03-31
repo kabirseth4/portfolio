@@ -20,7 +20,7 @@ const dockItems: DockItemProps[] = [
   },
   {
     icon: vscodeIcon,
-    name: "VS Code",
+    name: "Visual Studio Code",
   },
 ];
 
