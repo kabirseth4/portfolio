@@ -6,7 +6,7 @@ export const VSCode = () => {
       children={
         <embed
           className="h-full w-full"
-          src="https://github1s.com/kabirseth4/portfolio/tree/main/README.md"
+          src="https://github1s.com/kabirseth4/portfolio/"
         />
       }
     />
