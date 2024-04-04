@@ -1,8 +1,8 @@
-import { DockItem, type DockItemProps } from "./DockItem";
+import { DockItem, DockItemProps } from "./DockItem";
 
-export type DockLinkProps = {
+export interface DockLinkProps extends DockItemProps {
   href: string;
-} & DockItemProps;
+}
 
 export const DockLink = ({
   href,

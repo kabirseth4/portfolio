@@ -1,14 +1,17 @@
 import { AppWindow } from "../window/AppWindow";
+import { TrafficLightsProps } from "../window/TrafficLights";
 
-export const VSCode = () => {
+interface VSCodeProps extends TrafficLightsProps {
+  repo: string;
+}
+
+export const VSCode = ({ repo, closeFunc }: VSCodeProps) => {
   return (
-    <AppWindow
-      children={
-        <embed
-          className="h-full w-full"
-          src="https://github1s.com/kabirseth4/portfolio/"
-        />
-      }
-    />
+    <AppWindow closeFunc={closeFunc}>
+      <embed
+        className="h-full w-full"
+        src={`https://github1s.com/kabirseth4/${repo}/`}
+      />
+    </AppWindow>
   );
 };

@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-export type DockItemProps = {
+export interface DockItemProps {
   icon: string;
   name: string;
   rounded?: boolean;
-};
+}
 
 export const DockItem = ({ icon, name, rounded = true }: DockItemProps) => {
   const [isHovering, setIsHovering] = useState(false);
