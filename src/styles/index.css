@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 .dock-tooltip {
-  @apply absolute -top-12 w-max rounded border border-gray-500/40 bg-gray-700/60 px-3 py-0.5 text-white backdrop-blur-2xl;
+  @apply absolute -top-12 w-max rounded border border-gray-500/40 bg-gray-800/70 px-3 py-0.5 text-white backdrop-blur-2xl;
   @apply before:absolute before:left-1/2 before:top-full before:-ml-[6.5px] before:border-[6.5px] before:border-solid before:border-transparent before:border-t-gray-500/40 before:content-[''];
-  @apply after:absolute after:left-1/2 after:top-full after:-ml-[5px] after:border-[5px] after:border-solid after:border-transparent after:border-t-gray-700/90 after:content-[''];
+  @apply after:absolute after:left-1/2 after:top-full after:-ml-[5px] after:border-[5px] after:border-solid after:border-transparent after:border-t-gray-800/90 after:content-[''];
 }

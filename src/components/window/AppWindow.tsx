@@ -1,14 +1,15 @@
 import { ReactElement } from "react";
-import { TrafficLights, TrafficLightsProps } from "./TrafficLights";
 
-interface AppWindowProps extends TrafficLightsProps {
+interface AppWindowProps {
+  className: string;
   children: ReactElement;
 }
 
-export const AppWindow = ({ children, closeFunc }: AppWindowProps) => {
+export const AppWindow = ({ children, className }: AppWindowProps) => {
   return (
-    <div className="absolute h-3/4 w-3/4 overflow-hidden rounded-md border border-gray-600">
-      <TrafficLights closeFunc={closeFunc} />
+    <div
+      className={`absolute transform overflow-hidden rounded-md border border-gray-600 ${className ? className : ""}`}
+    >
       {children}
     </div>
   );

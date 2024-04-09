@@ -1,23 +1,32 @@
 @font-face {
   font-family: Avenir Next;
-  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("otf"),
+  src:
+    url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("otf"),
     url("../../assets/fonts/alt-files/AvenirNextLTPro.ttf") format("ttf");
   font-weight: 400;
 }
 
 @font-face {
   font-family: Avenir Next;
-  src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf") format("otf"),
+  src:
+    url("../../assets/fonts/AvenirNextLTPro-Demi.otf") format("otf"),
     url("../../assets/fonts/alt-files/AvenirNextLTProDemi.ttf") format("ttf");
   font-weight: 600;
 }
 
 @font-face {
   font-family: San Francisco;
-  src: url("../../assets/fonts/SF-Pro-Text-Regular.otf") format("otf"),
+  src:
+    url("../../assets/fonts/SF-Pro-Text-Regular.otf") format("otf"),
     url("../../assets/fonts/alt-files/SF-Pro.ttf") format("ttf");
-  font-weight: 600;
+  font-weight: 400;
 }
+
+/* @font-face {
+  font-family: San Francisco;
+  src: url("../../assets/fonts/SF-Pro-Text-Bold.otf") format("otf");
+  font-weight: 700;
+} */
 
 .font-avenir {
   font-family: "Avenir Next", sans-serif;
