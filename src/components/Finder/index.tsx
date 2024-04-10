@@ -38,7 +38,9 @@ export const Finder = ({
         </div>
         <div className="h-full w-full overflow-scroll bg-[#231e29]">
           {folder.type === "project" ? (
-            <ProjectFolder project={folder} />
+            <div className="p-4">
+              <ProjectFolder project={folder} />
+            </div>
           ) : folder.stacks ? (
             folder.stacks.map((stack) => {
               return (
