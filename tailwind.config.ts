@@ -5,7 +5,10 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "desktop-dark": "url('/src/assets/wallpapers/macos-monterey-dark.jpg')",
+        "monterey-light": "url('/src/assets/wallpapers/monterey-light.jpg')",
+        "monterey-dark": "url('/src/assets/wallpapers/monterey-dark.jpg')",
+        "sonoma-light": "url('/src/assets/wallpapers/sonoma-light.png')",
+        "sonoma-dark": "url('/src/assets/wallpapers/sonoma-dark.png')",
       },
     },
   },

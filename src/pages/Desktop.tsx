@@ -16,7 +16,7 @@ export const Desktop = () => {
   };
 
   return (
-    <div className="h-full w-full bg-desktop-dark bg-cover bg-center">
+    <div className="bg-monterey-dark h-full w-full bg-cover bg-center">
       <MenuBar />
       <div className="relative h-full w-full">
         {VSCodeActive && <VSCode repo={currentRepo} closeFunc={closeVSCode} />}
