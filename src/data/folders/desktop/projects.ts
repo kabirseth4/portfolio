@@ -19,7 +19,7 @@ const deckOfFire: FolderWithStacks = {
 const simsify: Project = {
   type: "project",
   name: "simsify",
-  repo: "kabirseth4/Simisfy",
+  repo: "kabirseth4/Simsify",
 };
 
 const portfolio: Project = {

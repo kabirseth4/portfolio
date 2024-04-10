@@ -7,8 +7,15 @@ import { Finder } from "../components/Finder";
 
 export const Desktop = () => {
   const { currentRepo, VSCodeActive, openVSCode, closeVSCode } = useVSCode();
-  const { currentFolder, changeFolder, finderActive, openFinder, closeFinder } =
-    useFinder();
+  const {
+    currentFolder,
+    changeFolder,
+    finderNav,
+    disableFinderNavBtns,
+    finderActive,
+    openFinder,
+    closeFinder,
+  } = useFinder();
 
   const dockOpenFuncs = {
     finder: openFinder,
@@ -24,6 +31,8 @@ export const Desktop = () => {
           <Finder
             folder={currentFolder}
             changeFolder={changeFolder}
+            disableNavButtons={disableFinderNavBtns}
+            navigation={finderNav}
             closeFunc={closeFinder}
           />
         )}
