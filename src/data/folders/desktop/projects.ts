@@ -5,13 +5,13 @@ const deckOfFire: FolderWithStacks = {
     {
       type: "project",
       name: "client",
-      repo: "deck-of-fire-client",
+      repo: "kabirseth4/deck-of-fire-client",
       url: "https://deck-of-fire.netlify.app",
     },
     {
       type: "project",
       name: "server",
-      repo: "deck-of-fire-server",
+      repo: "kabirseth4/deck-of-fire-server",
     },
   ],
 };
@@ -19,17 +19,17 @@ const deckOfFire: FolderWithStacks = {
 const simsify: Project = {
   type: "project",
   name: "simsify",
-  repo: "Simisfy",
+  repo: "kabirseth4/Simisfy",
 };
 
 const portfolio: Project = {
   type: "project",
   name: "portfolio",
-  repo: "portfolio",
+  repo: "kabirseth4/portfolio",
 };
 
 export const projects: Stack = {
   type: "stack",
-  name: "Projects",
+  name: "projects",
   items: [deckOfFire, simsify, portfolio],
 };

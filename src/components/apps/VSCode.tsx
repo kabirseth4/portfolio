@@ -15,7 +15,7 @@ export const VSCode = ({ repo, closeFunc }: VSCodeProps) => {
         />
         <embed
           className="h-full w-full"
-          src={`https://github1s.com/kabirseth4/${repo}/`}
+          src={`https://github1s.com/${repo}/`}
         />
       </div>
     </AppWindow>

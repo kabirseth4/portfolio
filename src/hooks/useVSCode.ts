@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const useVSCode = () => {
-  const [currentRepo, setCurrentRepo] = useState("kabirseth4");
+  const [currentRepo, setCurrentRepo] = useState("kabirseth4/kabirseth4");
   const [VSCodeActive, setVSCodeActive] = useState(false);
 
   const openVSCode = () => {
