@@ -12,9 +12,13 @@ export const useFinder = () => {
     setFinderActive(false);
   };
 
+  const changeFolder = (folder: Folder) => () => {
+    setCurrentFolder(folder);
+  };
+
   return {
     currentFolder,
-    setCurrentFolder,
+    changeFolder,
     finderActive,
     openFinder,
     closeFinder,

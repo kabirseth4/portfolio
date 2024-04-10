@@ -8,7 +8,7 @@ interface AppWindowProps {
 export const AppWindow = ({ children, className }: AppWindowProps) => {
   return (
     <div
-      className={`absolute transform overflow-hidden rounded-md border border-gray-600 ${className ? className : ""}`}
+      className={`absolute transform resize overflow-hidden rounded-xl border border-gray-600 ${className ? className : ""}`}
     >
       {children}
     </div>

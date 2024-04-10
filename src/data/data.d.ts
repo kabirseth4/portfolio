@@ -3,21 +3,6 @@ interface Item {
   name: string;
 }
 
-interface CodeItem extends Item {
-  type: "code";
-  repo: string;
-}
-
-interface RepoItem extends Item {
-  type: "repo";
-  repo: string;
-}
-
-interface LiveItem extends Item {
-  type: "live";
-  link: string;
-}
-
 interface Stack extends Item {
   type: "stack";
   items: Items;
@@ -37,7 +22,13 @@ interface FolderWithStacks extends FolderBase {
   items?: never;
 }
 
-type Folder = FolderWithItems | FolderWithStacks;
-type Items = (CodeItem | RepoItem | LiveItem | Folder)[];
+interface Project extends Item {
+  type: "project";
+  repo: string;
+  url?: string;
+}
+
+type Folder = FolderWithItems | FolderWithStacks | Project;
+type Items = (Folder | Project)[];
 type Folders = Folder[];
-type Stacks = Stack[];
+type Stacks = Stack[] | Project[];

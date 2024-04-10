@@ -3,11 +3,12 @@ import { Dock } from "../components/dock/Dock";
 import { VSCode } from "../components/apps/VSCode";
 import { useVSCode } from "../hooks/useVSCode";
 import { useFinder } from "../hooks/useFinder";
-import { Finder } from "../components/apps/Finder";
+import { Finder } from "../components/Finder";
 
 export const Desktop = () => {
   const { currentRepo, VSCodeActive, openVSCode, closeVSCode } = useVSCode();
-  const { currentFolder, finderActive, openFinder, closeFinder } = useFinder();
+  const { currentFolder, changeFolder, finderActive, openFinder, closeFinder } =
+    useFinder();
 
   const dockOpenFuncs = {
     finder: openFinder,
@@ -20,7 +21,11 @@ export const Desktop = () => {
       <div className="relative h-full w-full">
         {VSCodeActive && <VSCode repo={currentRepo} closeFunc={closeVSCode} />}
         {finderActive && (
-          <Finder folder={currentFolder} closeFunc={closeFinder} />
+          <Finder
+            folder={currentFolder}
+            changeFolder={changeFolder}
+            closeFunc={closeFinder}
+          />
         )}
         <Dock openFuncs={dockOpenFuncs} />
       </div>
