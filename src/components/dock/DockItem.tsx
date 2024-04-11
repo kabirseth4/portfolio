@@ -10,7 +10,7 @@ export const DockItem = ({ icon, name, rounded = true }: DockItemProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className="relative flex h-14 w-14 justify-center">
+    <div className="relative flex h-14 w-14 cursor-pointer justify-center">
       {isHovering && <div className="dock-tooltip">{name}</div>}
       <img
         src={icon}

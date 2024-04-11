@@ -52,15 +52,17 @@ export const Finder = ({
               );
             })
           ) : (
-            folder.items.map((item) => {
-              return (
-                <Folder
-                  key={item.name}
-                  folder={item}
-                  changeFolder={changeFolder}
-                />
-              );
-            })
+            <div className="p-4">
+              {folder.items.map((item) => {
+                return (
+                  <Folder
+                    key={item.name}
+                    folder={item}
+                    changeFolder={changeFolder}
+                  />
+                );
+              })}
+            </div>
           )}
         </div>
       </div>
