@@ -6,7 +6,8 @@ import { useFinder } from "../hooks/useFinder";
 import { Finder } from "../components/Finder";
 
 export const Desktop = () => {
-  const { currentRepo, VSCodeActive, openVSCode, closeVSCode } = useVSCode();
+  const { currentRepo, changeCode, VSCodeActive, openVSCode, closeVSCode } =
+    useVSCode();
   const {
     currentFolder,
     changeFolder,
@@ -23,7 +24,7 @@ export const Desktop = () => {
   };
 
   return (
-    <div className="bg-monterey-dark h-full w-full bg-cover bg-center">
+    <div className="h-full w-full bg-monterey-dark bg-cover bg-center">
       <MenuBar />
       <div className="relative h-full w-full">
         {VSCodeActive && <VSCode repo={currentRepo} closeFunc={closeVSCode} />}
@@ -31,6 +32,7 @@ export const Desktop = () => {
           <Finder
             folder={currentFolder}
             changeFolder={changeFolder}
+            changeCode={changeCode}
             disableNavButtons={disableFinderNavBtns}
             navigation={finderNav}
             closeFunc={closeFinder}

@@ -11,5 +11,10 @@ export const useVSCode = () => {
     setVSCodeActive(false);
   };
 
-  return { currentRepo, setCurrentRepo, VSCodeActive, openVSCode, closeVSCode };
+  const changeCode = (repo: string) => () => {
+    setCurrentRepo(repo);
+    openVSCode();
+  };
+
+  return { currentRepo, changeCode, VSCodeActive, openVSCode, closeVSCode };
 };

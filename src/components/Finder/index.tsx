@@ -12,6 +12,7 @@ interface FinderProps extends TrafficLightsProps {
     forward: boolean;
   };
   changeFolder: (folder: Folder) => () => void;
+  changeCode: (repo: string) => () => void;
   navigation: {
     back: () => void;
     forward: () => void;
@@ -22,6 +23,7 @@ export const Finder = ({
   folder,
   disableNavButtons,
   changeFolder,
+  changeCode,
   navigation,
   closeFunc,
 }: FinderProps) => {
@@ -39,7 +41,7 @@ export const Finder = ({
         <div className="h-full w-full overflow-scroll bg-[#231e29]">
           {folder.type === "project" ? (
             <div className="p-4">
-              <ProjectFolder project={folder} />
+              <ProjectFolder project={folder} changeCode={changeCode} />
             </div>
           ) : folder.stacks ? (
             folder.stacks.map((stack) => {
@@ -48,6 +50,7 @@ export const Finder = ({
                   key={stack.name}
                   stack={stack}
                   changeFolder={changeFolder}
+                  changeCode={changeCode}
                 />
               );
             })

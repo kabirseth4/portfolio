@@ -5,12 +5,15 @@ import { FinderItem } from "./FinderItem";
 
 interface ProjectFolderProps {
   project: Project;
+  changeCode: (repo: string) => () => void;
 }
 
-export const ProjectFolder = ({ project }: ProjectFolderProps) => {
+export const ProjectFolder = ({ project, changeCode }: ProjectFolderProps) => {
   return (
     <div className="flex gap-6 p-4">
-      <FinderItem icon={vscodeIcon} alt="Visual studio code" label="code" />
+      <div onClick={changeCode(project.repo)}>
+        <FinderItem icon={vscodeIcon} alt="Visual studio code" label="code" />
+      </div>
       <a href={`https://github.com/${project.repo}`} target="_blank">
         <FinderItem icon={githubIcon} alt="Github" label="repo" />
       </a>
