@@ -1,11 +1,11 @@
-import { AppWindow } from "../window/AppWindow";
-import { TrafficLights, TrafficLightsProps } from "../window/TrafficLights";
+import { Window } from "../Window";
+import { WindowControls, WindowControlsProps } from "../Window/WindowControls";
 import { FinderNavButtons } from "./FinderNavButtons";
 import { Folder } from "./Folder";
 import { ProjectFolder } from "./ProjectFolder";
 import { Stack } from "./Stack";
 
-interface FinderProps extends TrafficLightsProps {
+interface FinderProps extends WindowControlsProps {
   folder: Folder;
   disableNavButtons: {
     back: boolean;
@@ -28,10 +28,10 @@ export const Finder = ({
   closeFunc,
 }: FinderProps) => {
   return (
-    <AppWindow className="left-1/2 top-1/4 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/4">
+    <Window className="left-1/2 top-1/4 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/4">
       <div className="flex h-full w-full flex-col">
         <div className="flex h-12 w-full items-center gap-4 bg-[#39353d] p-4">
-          <TrafficLights closeFunc={closeFunc} />
+          <WindowControls closeFunc={closeFunc} />
           <FinderNavButtons
             navFuncs={navigation}
             disableButtons={disableNavButtons}
@@ -69,6 +69,6 @@ export const Finder = ({
           )}
         </div>
       </div>
-    </AppWindow>
+    </Window>
   );
 };

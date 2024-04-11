@@ -1,15 +1,15 @@
-import { AppWindow } from "../window/AppWindow";
-import { TrafficLightsProps, TrafficLights } from "../window/TrafficLights";
+import { Window } from "../Window";
+import { WindowControlsProps, WindowControls } from "../Window/WindowControls";
 
-interface VSCodeProps extends TrafficLightsProps {
+interface VSCodeProps extends WindowControlsProps {
   repo: string;
 }
 
 export const VSCode = ({ repo, closeFunc }: VSCodeProps) => {
   return (
-    <AppWindow className="left-1/3 top-1/4 h-3/4 w-[85%] -translate-x-1/3 -translate-y-1/4">
+    <Window className="left-1/3 top-1/4 h-3/4 w-[85%] -translate-x-1/3 -translate-y-1/4">
       <div className="h-full w-full">
-        <TrafficLights
+        <WindowControls
           classname="absolute left-3 top-3"
           closeFunc={closeFunc}
         />
@@ -18,6 +18,6 @@ export const VSCode = ({ repo, closeFunc }: VSCodeProps) => {
           src={`https://github1s.com/${repo}/`}
         />
       </div>
-    </AppWindow>
+    </Window>
   );
 };

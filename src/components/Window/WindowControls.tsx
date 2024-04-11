@@ -1,11 +1,14 @@
 import { useState } from "react";
 
-export interface TrafficLightsProps {
+export interface WindowControlsProps {
   classname?: string;
   closeFunc: () => void;
 }
 
-export const TrafficLights = ({ classname, closeFunc }: TrafficLightsProps) => {
+export const WindowControls = ({
+  classname,
+  closeFunc,
+}: WindowControlsProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
