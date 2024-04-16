@@ -1,20 +1,39 @@
 import { useState } from "react";
 
 export const useVSCode = () => {
-  const [currentRepo, setCurrentRepo] = useState("kabirseth4/kabirseth4");
-  const [VSCodeActive, setVSCodeActive] = useState(false);
+  const [currentCode, setCurrentCode] = useState("kabirseth4/kabirseth4");
+  const [isActive, setIsActive] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
-  const openVSCode = () => {
-    setVSCodeActive(true);
+  const open = () => {
+    setIsActive(true);
   };
-  const closeVSCode = () => {
-    setVSCodeActive(false);
+
+  const close = () => {
+    setIsActive(false);
+  };
+
+  const focus = () => {
+    setIsFocused(true);
   };
 
   const changeCode = (repo: string) => () => {
-    setCurrentRepo(repo);
-    openVSCode();
+    setCurrentCode(repo);
+    open();
   };
 
-  return { currentRepo, changeCode, VSCodeActive, openVSCode, closeVSCode };
+  const VSCodeStates = {
+    isActive,
+    isFocused,
+    currentCode,
+  };
+
+  const VSCodeActions = {
+    open,
+    close,
+    focus,
+    changeCode,
+  };
+
+  return { VSCodeStates, VSCodeActions };
 };

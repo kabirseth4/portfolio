@@ -6,38 +6,36 @@ import { useFinder } from "../hooks/useFinder";
 import { Finder } from "../components/Finder";
 
 export const Desktop = () => {
-  const { currentRepo, changeCode, VSCodeActive, openVSCode, closeVSCode } =
-    useVSCode();
-  const {
-    currentFolder,
-    changeFolder,
-    finderNav,
-    disableFinderNavBtns,
-    finderActive,
-    openFinder,
-    closeFinder,
-  } = useFinder();
-
-  const dockOpenFuncs = {
-    finder: openFinder,
-    VSCode: openVSCode,
-  };
+  const { VSCodeStates, VSCodeActions } = useVSCode();
+  const { finderStates, finderActions } = useFinder();
 
   const windows = [
     {
-      isOpen: VSCodeActive,
-      element: <VSCode repo={currentRepo} closeFunc={closeVSCode} />,
+      name: "VSCode",
+      isOpen: VSCodeStates.isActive,
+      element: (
+        <VSCode
+          key="VSCode"
+          code={VSCodeStates.currentCode}
+          windowControls={{ close: VSCodeActions.close }}
+        />
+      ),
     },
     {
-      isOpen: finderActive,
+      name: "Finder",
+      isOpen: finderStates.isActive,
       element: (
         <Finder
-          folder={currentFolder}
-          changeFolder={changeFolder}
-          changeCode={changeCode}
-          disableNavButtons={disableFinderNavBtns}
-          navigation={finderNav}
-          closeFunc={closeFinder}
+          key="Finder"
+          folder={finderStates.currentFolder}
+          changeFolder={finderActions.changeFolder}
+          changeCode={VSCodeActions.changeCode}
+          disableNavButtons={finderStates.disableNavButtons}
+          navigation={{
+            back: finderActions.goBack,
+            forward: finderActions.goForward,
+          }}
+          windowControls={{ close: finderActions.close }}
         />
       ),
     },
@@ -47,10 +45,15 @@ export const Desktop = () => {
     <div className="h-full w-full bg-monterey-dark bg-cover bg-center">
       <MenuBar />
       <div className="relative h-full w-full">
-        {windows.map((window) => {
-          if (window.isOpen) return window.element;
+        {windows.map(({ isOpen, element }) => {
+          if (isOpen) return element;
         })}
-        <Dock openFuncs={dockOpenFuncs} />
+        <Dock
+          openFuncs={{
+            finder: finderActions.open,
+            VSCode: VSCodeActions.open,
+          }}
+        />
       </div>
     </div>
   );

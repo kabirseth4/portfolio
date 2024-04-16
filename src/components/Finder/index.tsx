@@ -1,11 +1,11 @@
 import { Window } from "../Window";
-import { WindowControls, WindowControlsProps } from "../Window/WindowControls";
+import { WindowControls } from "../Window/WindowControls";
 import { FinderNavButtons } from "./FinderNavButtons";
 import { Folder } from "./Folder";
 import { ProjectFolder } from "./ProjectFolder";
 import { Stack } from "./Stack";
 
-interface FinderProps extends WindowControlsProps {
+interface FinderProps {
   folder: Folder;
   disableNavButtons: {
     back: boolean;
@@ -17,6 +17,9 @@ interface FinderProps extends WindowControlsProps {
     back: () => void;
     forward: () => void;
   };
+  windowControls: {
+    close: () => void;
+  };
 }
 
 export const Finder = ({
@@ -25,13 +28,13 @@ export const Finder = ({
   changeFolder,
   changeCode,
   navigation,
-  closeFunc,
+  windowControls,
 }: FinderProps) => {
   return (
     <Window className="left-1/2 top-1/4 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/4">
       <div className="flex h-full w-full flex-col">
         <div className="flex h-12 w-full items-center gap-4 bg-[#39353d] p-4">
-          <WindowControls closeFunc={closeFunc} />
+          <WindowControls controls={windowControls} />
           <FinderNavButtons
             navFuncs={navigation}
             disableButtons={disableNavButtons}
