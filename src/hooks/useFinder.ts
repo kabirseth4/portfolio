@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { folders } from "../data/folders";
 
-export const useFinder = () => {
+export const useFinder = (
+  setWindowOrder: React.Dispatch<React.SetStateAction<string[]>>,
+) => {
   const [isActive, setIsActive] = useState(false);
   const [currentFolder, setCurrentFolder] = useState<Folder>(folders[0]);
   const [history, setHistory] = useState<Folders>([currentFolder]);
@@ -11,8 +13,24 @@ export const useFinder = () => {
     forward: finderIndex + 1 === history.length,
   };
 
+  const focus = () => {
+    setWindowOrder((windows) => {
+      const index = windows.indexOf("Finder");
+      if (index !== -1) {
+        const updatedWindows = [
+          ...windows.slice(0, index),
+          ...windows.slice(index + 1),
+          windows[index],
+        ];
+        return updatedWindows;
+      }
+      return windows;
+    });
+  };
+
   const open = () => {
     setIsActive(true);
+    focus();
   };
 
   const close = () => {
@@ -27,6 +45,7 @@ export const useFinder = () => {
       return newIndex;
     });
     setCurrentFolder(folder);
+    open();
   };
 
   const goBack = () => {
@@ -54,6 +73,7 @@ export const useFinder = () => {
   const finderActions = {
     open,
     close,
+    focus,
     changeFolder,
     goBack,
     goForward,

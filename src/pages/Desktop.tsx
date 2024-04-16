@@ -4,10 +4,13 @@ import { VSCode } from "../components/VSCode";
 import { useVSCode } from "../hooks/useVSCode";
 import { useFinder } from "../hooks/useFinder";
 import { Finder } from "../components/Finder";
+import { useState } from "react";
 
 export const Desktop = () => {
-  const { VSCodeStates, VSCodeActions } = useVSCode();
-  const { finderStates, finderActions } = useFinder();
+  const [windowOrder, setWindowOrder] = useState(["VSCode", "Finder"]);
+
+  const { VSCodeStates, VSCodeActions } = useVSCode(setWindowOrder);
+  const { finderStates, finderActions } = useFinder(setWindowOrder);
 
   const windows = [
     {
@@ -17,7 +20,12 @@ export const Desktop = () => {
         <VSCode
           key="VSCode"
           code={VSCodeStates.currentCode}
-          windowControls={{ close: VSCodeActions.close }}
+          isFocused={windowOrder.indexOf("VSCode") === windowOrder.length - 1}
+          zIndex={windowOrder.indexOf("VSCode")}
+          windowControls={{
+            close: VSCodeActions.close,
+            focus: VSCodeActions.focus,
+          }}
         />
       ),
     },
@@ -27,6 +35,7 @@ export const Desktop = () => {
       element: (
         <Finder
           key="Finder"
+          zIndex={windowOrder.indexOf("Finder")}
           folder={finderStates.currentFolder}
           changeFolder={finderActions.changeFolder}
           changeCode={VSCodeActions.changeCode}
@@ -35,7 +44,10 @@ export const Desktop = () => {
             back: finderActions.goBack,
             forward: finderActions.goForward,
           }}
-          windowControls={{ close: finderActions.close }}
+          windowControls={{
+            close: finderActions.close,
+            focus: finderActions.focus,
+          }}
         />
       ),
     },

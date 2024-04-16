@@ -5,7 +5,7 @@ import { FinderItem } from "./FinderItem";
 
 interface ProjectFolderProps {
   project: Project;
-  changeCode: (repo: string) => () => void;
+  changeCode: (repo: string) => (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const ProjectFolder = ({ project, changeCode }: ProjectFolderProps) => {

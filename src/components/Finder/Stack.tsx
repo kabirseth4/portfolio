@@ -4,7 +4,7 @@ import { ProjectFolder } from "./ProjectFolder";
 interface StackProps {
   stack: Stack | Project;
   changeFolder: (folder: Folder) => () => void;
-  changeCode: (repo: string) => () => void;
+  changeCode: (repo: string) => (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const Stack = ({ stack, changeFolder, changeCode }: StackProps) => {

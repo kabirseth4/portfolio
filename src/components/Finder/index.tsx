@@ -6,23 +6,26 @@ import { ProjectFolder } from "./ProjectFolder";
 import { Stack } from "./Stack";
 
 interface FinderProps {
+  zIndex: number;
   folder: Folder;
   disableNavButtons: {
     back: boolean;
     forward: boolean;
   };
   changeFolder: (folder: Folder) => () => void;
-  changeCode: (repo: string) => () => void;
+  changeCode: (repo: string) => (e: React.MouseEvent<HTMLElement>) => void;
   navigation: {
     back: () => void;
     forward: () => void;
   };
   windowControls: {
     close: () => void;
+    focus: () => void;
   };
 }
 
 export const Finder = ({
+  zIndex,
   folder,
   disableNavButtons,
   changeFolder,
@@ -31,7 +34,10 @@ export const Finder = ({
   windowControls,
 }: FinderProps) => {
   return (
-    <Window className="left-1/2 top-1/4 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/4">
+    <Window
+      className={`left-[10%] top-8 z-[${zIndex}] h-[60%] w-[60%]`}
+      onClick={windowControls.focus}
+    >
       <div className="flex h-full w-full flex-col">
         <div className="flex h-12 w-full items-center gap-4 bg-[#39353d] p-4">
           <WindowControls controls={windowControls} />
