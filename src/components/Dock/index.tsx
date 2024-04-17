@@ -57,7 +57,7 @@ export const Dock = ({ openFuncs }: DockProps) => {
   ];
 
   return (
-    <div className="absolute bottom-11 left-2/4 flex h-20 w-max -translate-x-1/2 transform gap-3 rounded-2xl border border-gray-600/40 bg-gray-700/20 px-3 py-2 backdrop-blur-2xl">
+    <div className="absolute bottom-11 left-2/4 z-50 flex h-20 w-max -translate-x-1/2 transform gap-3 rounded-2xl border border-gray-600/40 bg-gray-700/20 px-3 py-2 backdrop-blur-2xl">
       {dockItems.map(({ icon, name, openFunc }, i) => {
         return <DockApp key={i} icon={icon} name={name} openFunc={openFunc} />;
       })}

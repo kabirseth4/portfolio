@@ -1,6 +1,7 @@
-import { useDesktop } from "../hooks/useDesktop";
-import { MenuBar } from "../components/MenuBar";
-import { Dock } from "../components/Dock";
+import { useDesktop } from "../../hooks/useDesktop";
+import { MenuBar } from "../MenuBar";
+import { DesktopFolders } from "./DesktopFolders";
+import { Dock } from "../Dock";
 
 export const Desktop = () => {
   const { apps, dockOpenFuncs } = useDesktop();
@@ -12,6 +13,7 @@ export const Desktop = () => {
         {apps.map(({ isOpen, content }) => {
           if (isOpen) return content;
         })}
+        <DesktopFolders />
         <Dock openFuncs={dockOpenFuncs} />
       </div>
     </div>
