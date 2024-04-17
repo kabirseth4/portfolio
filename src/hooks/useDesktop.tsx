@@ -5,7 +5,7 @@ import { VSCode } from "../components/VSCode";
 import { Finder } from "../components/Finder";
 
 export const useDesktop = () => {
-  const [windowOrder, setWindowOrder] = useState(["VSCode", "Finder"]);
+  const [windowOrder, setWindowOrder] = useState(["Finder", "VSCode"]);
 
   const vSCode = useVSCode(setWindowOrder);
   const finder = useFinder(setWindowOrder);
@@ -19,7 +19,7 @@ export const useDesktop = () => {
           key="VSCode"
           code={vSCode.state.currentCode}
           isFocused={windowOrder.indexOf("VSCode") === windowOrder.length - 1}
-          zIndex={windowOrder.indexOf("VSCode")}
+          zIndex={windowOrder.indexOf("VSCode") + 1}
           windowControls={{
             close: vSCode.actions.close,
             focus: vSCode.actions.focus,
@@ -33,7 +33,7 @@ export const useDesktop = () => {
       content: (
         <Finder
           key="Finder"
-          zIndex={windowOrder.indexOf("Finder")}
+          zIndex={windowOrder.indexOf("Finder") + 1}
           folder={finder.state.currentFolder}
           changeFolder={finder.actions.changeFolder}
           changeCode={vSCode.actions.changeCode}
