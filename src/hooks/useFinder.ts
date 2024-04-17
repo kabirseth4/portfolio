@@ -64,23 +64,19 @@ export const useFinder = (
     });
   };
 
-  const finderStates = {
-    currentFolder,
-    isActive,
-    disableNavButtons,
-  };
-
-  const finderActions = {
-    open,
-    close,
-    focus,
-    changeFolder,
-    goBack,
-    goForward,
-  };
-
   return {
-    finderStates,
-    finderActions,
+    state: {
+      currentFolder,
+      isActive,
+      disableNavButtons,
+    },
+    actions: {
+      open,
+      close,
+      focus,
+      changeFolder,
+      goBack,
+      goForward,
+    },
   };
 };

@@ -36,17 +36,16 @@ export const useVSCode = (
     open();
   };
 
-  const VSCodeStates = {
-    isActive,
-    currentCode,
+  return {
+    state: {
+      isActive,
+      currentCode,
+    },
+    actions: {
+      open,
+      close,
+      focus,
+      changeCode,
+    },
   };
-
-  const VSCodeActions = {
-    open,
-    close,
-    focus,
-    changeCode,
-  };
-
-  return { VSCodeStates, VSCodeActions };
 };
