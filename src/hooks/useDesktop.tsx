@@ -51,10 +51,12 @@ export const useDesktop = () => {
     },
   ];
 
+  const { changeFolder } = finder.actions;
+
   const dockOpenFuncs: { [name: string]: () => void } = {
     finder: finder.actions.open,
     VSCode: vSCode.actions.open,
   };
 
-  return { apps, dockOpenFuncs };
+  return { apps, changeFolder, dockOpenFuncs };
 };

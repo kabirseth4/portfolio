@@ -4,7 +4,7 @@ export const useVSCode = (
   setWindowOrder: React.Dispatch<React.SetStateAction<string[]>>,
 ) => {
   const [currentCode, setCurrentCode] = useState("kabirseth4/kabirseth4");
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   const focus = () => {
     setWindowOrder((windows) => {
@@ -28,6 +28,7 @@ export const useVSCode = (
 
   const close = () => {
     setIsActive(false);
+    setCurrentCode("kabirseth4/kabirseth4");
   };
 
   const changeCode = (code: string) => (e: React.MouseEvent<HTMLElement>) => {
