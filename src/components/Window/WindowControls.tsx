@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { notifyWIP } from "../Notification";
 
 export interface WindowControlsProps {
   classname?: string;
@@ -43,7 +44,10 @@ export const WindowControls = ({
           </svg>
         )}
       </button>
-      <button className="flex h-3 w-3 items-center justify-center rounded-full bg-[#FEBC2E]">
+      <button
+        className="flex h-3 w-3 items-center justify-center rounded-full bg-[#FEBC2E]"
+        onClick={notifyWIP}
+      >
         {isHovering && (
           <svg
             width="10"
@@ -60,7 +64,10 @@ export const WindowControls = ({
           </svg>
         )}
       </button>
-      <button className="flex h-3 w-3 items-center justify-center rounded-full bg-[#28C840]">
+      <button
+        className="flex h-3 w-3 items-center justify-center rounded-full bg-[#28C840]"
+        onClick={notifyWIP}
+      >
         {isHovering && (
           <svg
             width="6"

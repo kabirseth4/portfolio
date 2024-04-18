@@ -1,0 +1,21 @@
+@import "react-toastify/dist/ReactToastify.css";
+
+.Toastify__toast-container {
+  width: 21.5rem;
+  margin-top: 1.5rem;
+  margin-right: -7px;
+}
+
+.Toastify__toast {
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(30px);
+  border: 1px solid #403b46;
+  padding: 0.2rem;
+}
+
+.Toastify__close-button > svg {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 5px 10px 0 0;
+}

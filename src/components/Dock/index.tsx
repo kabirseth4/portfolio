@@ -9,6 +9,7 @@ import binIcon from "../../assets/images/bin-empty.png";
 import { DockItem } from "./DockItem";
 import { DockLink, DockLinkProps } from "./DockLink";
 import { DockApp, DockAppProps } from "./DockApp";
+import { notifyWIP } from "../Notification";
 
 type DockProps = {
   openFuncs: { [k: string]: () => void };
@@ -65,7 +66,9 @@ export const Dock = ({ openFuncs }: DockProps) => {
         return <DockLink key={i} icon={icon} name={name} href={href} />;
       })}
       <div className="border-l border-gray-300/40" />
-      <DockItem icon={binIcon} name={"Bin"} rounded={false} />
+      <div onClick={notifyWIP}>
+        <DockItem icon={binIcon} name={"Bin"} rounded={false} />
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useVSCode } from "./useVSCode";
 import { useFinder } from "./useFinder";
 import { VSCode } from "../components/VSCode";
 import { Finder } from "../components/Finder";
+import { notifyWIP } from "../components/Notification";
 
 export const useDesktop = () => {
   const [windowOrder, setWindowOrder] = useState(["Finder", "VSCode"]);
@@ -55,6 +56,7 @@ export const useDesktop = () => {
 
   const dockOpenFuncs: { [name: string]: () => void } = {
     finder: finder.actions.open,
+    chrome: notifyWIP,
     VSCode: vSCode.actions.open,
   };
 
